@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        /* Estilo básico para o tabuleiro */
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        #tabuleiro { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; margin: 0 auto; }
+        .casa { width: 100px; height: 100px; background: #eee; font-size: 2em; line-height: 100px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Jogo da Velha</h1>
+    <div id="tabuleiro">
+        <!-- Casas do jogo -->
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+        <div class="casa"></div>
+    </div>
+
+    <script>
+        const casas = document.querySelectorAll('.casa');
+        let turno = 'X';
+
+        casas.forEach(casa => {
+            casa.addEventListener('click', () => {
+                if (casa.innerText === '') {
+                    casa.innerText = turno;
+                    turno = turno === 'X' ? 'O' : 'X';
+                    // Verificar vencedor (implementação opcional)
+                }
+            });
+        });
+    </script>
+</body>
+</html>
