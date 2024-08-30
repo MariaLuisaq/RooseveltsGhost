@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RooseveltsGhost</title>
+    <style>
+        /* Estilo básico para o layout */
+        body { font-family: Bebasnue, sans-serif; margin: 20px; }
+        #tweet-container { margin-top: 20px; }
+        .tweet { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        .tweet-input { width: 100%; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Meu Twitter Clone</h1>
+    <div id="tweet-container">
+        <!-- Os tweets serão exibidos aqui -->
+    </div>
+    <textarea id="tweet-input" class="tweet-input" placeholder="O que está acontecendo?"></textarea>
+    <button onclick="adicionarTweet()">Tweetar</button>
+
+    <script>
+        // Função para adicionar tweets
+        function adicionarTweet() {
+            const tweetInput = document.getElementById('tweet-input');
+            const tweetText = tweetInput.value;
+
+            if (tweetText) {
+                const tweetContainer = document.getElementById('tweet-container');
+                const tweetElement = document.createElement('div');
+                tweetElement.className = 'tweet';
+                tweetElement.innerText = tweetText;
+
+                tweetContainer.appendChild(tweetElement);
+                tweetInput.value = '';
+
+                // Opcional: Salvar no LocalStorage para persistência
+            }
+        }
+    </script>
+</body>
+</html>
